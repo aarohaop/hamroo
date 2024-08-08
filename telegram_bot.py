@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 # Constants
 TELEGRAM_BOT_TOKEN = os.getenv('6822388482:AAH5CFDnDS8ALNyDBWcyB-mEUDLOVF-Qx6Y')
 SHORTENER_API_URL = 'https://ez4short.xyz/api?api={SHORTENER_API_KEY}'
-SHORTENER_API_KEY = os.getenv('SHORTENER_API_KEY')
+SHORTENER_API_KEY = os.getenv('S12b2d8281afa6d870f9b44bd0cba166704c7ea50')
 
 # Function to check balance
 def check_balance():
