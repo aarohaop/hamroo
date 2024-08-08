@@ -39,15 +39,19 @@ async def balance(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(chat_id=update.effective_chat.id, text=balance_info)
 
 # Main function to start the bot
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Welcome to the URL Shortener Bot! Use /balance to check your balance.")
+
+async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Use /balance to check your balance. More features coming soon!")
+
 async def main():
-    # Create the Application and pass it your bot's token
     application = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
 
-    # Add command handler
-    balance_handler = CommandHandler('balance', balance)
-    application.add_handler(balance_handler)
+    application.add_handler(CommandHandler('start', start))
+    application.add_handler(CommandHandler('help', help_command))
+    application.add_handler(CommandHandler('balance', balance))
 
-    # Run the bot until the user presses Ctrl-C
     await application.run_polling()
 
 if __name__ == '__main__':
